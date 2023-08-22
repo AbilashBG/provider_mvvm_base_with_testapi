@@ -26,8 +26,9 @@ class _HomeScreenState extends State<HomeScreen> {
         create: (_) => HomeProvider(),
         builder: (context, provider) => Consumer<HomeProvider>(
           builder: (context, provider, snapshot) {
-            Get.lazyPut<HomeProvider>(() => provider);
-            final homeProvider = Get.find<HomeProvider>();
+            ///the provider has already created and that store in the get
+            Get.lazyPut(() => provider);
+
             return Scaffold(
                 backgroundColor: Colors.white,
                 body: Column(
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(provider.value.toString()),
+                            Text(provider.value.toString(),),
                             ElevatedButton(
                               onPressed: () {
                                 provider.decrement();

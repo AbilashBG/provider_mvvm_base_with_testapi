@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:mvvmbasic/providers/home_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/local_providers/app_local_provider.dart';
@@ -8,14 +9,16 @@ import '../providers/product_view_provider.dart';
 
 class ProductViewScreen extends StatefulWidget {
   final String? productId;
-  final Function? incrementCallBack;
-  const ProductViewScreen({Key? key, required this.productId, required this.incrementCallBack}) : super(key: key);
+  const ProductViewScreen({Key? key, required this.productId}) : super(key: key);
 
   @override
   State<ProductViewScreen> createState() => _ProductViewScreenState();
 }
 
 class _ProductViewScreenState extends State<ProductViewScreen> {
+
+  ///the stored provider which is in the get has used here ,we can use this wherever like this
+  HomeProvider homeProvider = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,6 @@ class _ProductViewScreenState extends State<ProductViewScreen> {
         create:(_)=>ProductViewProvider("${widget.productId}"),builder: (context,provider)=> Consumer<ProductViewProvider>(
         builder: (context, provider, snapshot) {
           Get.lazyPut<ProductViewProvider>(() => provider);
-          final productViewProvider = Get.find<ProductViewProvider>();
           return SafeArea(
             child: Scaffold(
               backgroundColor: Colors.white,
@@ -48,7 +50,7 @@ class _ProductViewScreenState extends State<ProductViewScreen> {
                       child: Text("\$ ${provider.productViewModel?.description}",style: TextStyle(fontSize: 19,),)),
                   SizedBox(height: 20,),
                   ElevatedButton(onPressed: (){
-                    widget.incrementCallBack!();
+                    homeProvider.increment();
                   }, child: Text("Press Here"),),
                 ],
               ),

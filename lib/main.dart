@@ -120,7 +120,7 @@ class MyMaterialApp extends StatelessWidget {
           final args = ModalRoute.of(context)!.settings.arguments as List;
           final id = args[0];
           final productView = args[1];
-          return  ProductViewScreen(productId: "${id}",incrementCallBack:productView);
+          return  ProductViewScreen(productId: "${id}");
         },
       },
     );
