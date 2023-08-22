@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "477199306502",
+    "project_id": "capefluttermvvm",
+    "storage_bucket": "capefluttermvvm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477199306502:android:3c8828c5f67f44b2105887",
+        "android_client_info": {
+          "package_name": "com.change.package.mvvmbasic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "477199306502-bmd42q3ofo5t9d7519ov2n0vs4l8fhso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJJB-AFpeH2F_JOphx9-NURBYjmx4xq8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "477199306502-bmd42q3ofo5t9d7519ov2n0vs4l8fhso.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

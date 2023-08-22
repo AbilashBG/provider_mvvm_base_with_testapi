@@ -1,0 +1,5 @@
+enum AppRoutes{
+  SPLASHSCREEN,
+  HOMESCREEN,
+  PRODUCTVIEWSCREEN,
+}
