@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
 import 'package:mvvmbasic/repository/home_repository.dart';
 
 import '../data_model/product_list_model.dart';
-import '../data_model/product_view_model.dart';
 
 class HomeProvider with ChangeNotifier {
   HomeProvider() {
@@ -22,8 +22,8 @@ class HomeProvider with ChangeNotifier {
 
   List<ProductsList>? productList = [];
 
-  int value = 0;
-
+  /// use .obs for state management like if we use it inside of stateless widget we must wrap that widget by Obx()
+  RxInt value = 0.obs;
   void productsList() async {
     setIsLoading(true);
     var data = await homeRepository.productList({});
@@ -40,14 +40,16 @@ class HomeProvider with ChangeNotifier {
 
   void increment() {
     value++;
-    notifyListeners();
+    ///obs and Obx has used so no need to use notifyListeners or setState functions
+ //   notifyListeners();
   }
 
   void decrement() {
    if(value>0){
      value--;
    }
-    notifyListeners();
+    ///obs and Obx has used so no need to use notifyListeners or setState functions
+   // notifyListeners();
   }
 
   void starFunction(){
