@@ -27,7 +27,8 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (context, provider) => Consumer<HomeProvider>(
           builder: (context, provider, snapshot) {
             ///the provider has already created and that store in the get
-            Get.lazyPut(() => provider);
+            ///fenix: true is used for don't dispose the created getx provider
+            Get.lazyPut(() => provider,fenix: true);
 
             return Scaffold(
                 backgroundColor: Colors.white,
